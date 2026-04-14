@@ -1,0 +1,102 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Verification Demo</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #0f172a;
+      color: white;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+    }.container {
+  margin-top: 80px;
+}
+
+.card {
+  background: #1e293b;
+  padding: 25px;
+  margin: auto;
+  width: 90%;
+  max-width: 400px;
+  border-radius: 15px;
+}
+
+button {
+  padding: 12px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-top: 10px;
+  width: 100%;
+  font-weight: bold;
+}
+
+.roblox-btn {
+  background: #ff4d4d;
+  color: white;
+}
+
+.verify-btn {
+  background: #22c55e;
+  color: white;
+}
+
+.captcha-box {
+  margin: 15px 0;
+  padding: 10px;
+  background: #334155;
+  border-radius: 10px;
+}
+
+input {
+  padding: 10px;
+  width: 90%;
+  border-radius: 8px;
+  border: none;
+  margin-top: 10px;
+}
+
+  </style>
+</head>
+<body>  <div class="container">
+    <div class="card">
+      <h2>Account Verification (Demo)</h2>
+      <p>Connect your Roblox account (simulation only)</p><button class="roblox-btn" onclick="connect()">Connect Roblox Account</button>
+
+  <div class="captcha-box">
+    <p>Solve CAPTCHA: What is 3 + 4?</p>
+    <input id="captcha" placeholder="Answer here" />
+  </div>
+
+  <button class="verify-btn" onclick="verify()">Verify</button>
+
+  <p id="status"></p>
+</div>
+
+  </div>  <script>
+    let connected = false;
+
+    function connect() {
+      connected = true;
+      document.getElementById('status').innerText = 'Roblox account connected (demo)';
+    }
+
+    function verify() {
+      const answer = document.getElementById('captcha').value;
+
+      if (!connected) {
+        document.getElementById('status').innerText = 'Please connect Roblox account first';
+        return;
+      }
+
+      if (answer == '7') {
+        document.getElementById('status').innerText = 'Verification successful ✔';
+      } else {
+        document.getElementById('status').innerText = 'Captcha incorrect ❌';
+      }
+    }
+  </script></body>
+</html>
